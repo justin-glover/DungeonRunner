@@ -24,7 +24,7 @@ npm start
 
 You will also need the following packages:
 
-- 'nedb'
-- 'promise'
+- `nedb`
+- `promise`
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/).
