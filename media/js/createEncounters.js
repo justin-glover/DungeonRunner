@@ -183,4 +183,6 @@ function saveNewEncounter(){
             console.log("Inserted", doc.name, 'with ID', doc._id);
         });
     }
+
+    reloadEncounters();
 }
