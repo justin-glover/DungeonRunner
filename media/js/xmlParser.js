@@ -32,7 +32,7 @@ itemDB = new Datastore({
 });
 
 
-//Loads and saves the beastiary info
+//Loads and saves the bestiary info
 var monster = {
     name: '',
     size: '',
