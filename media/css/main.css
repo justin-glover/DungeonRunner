@@ -1,0 +1,485 @@
+body{
+    background-color: #1c2532;
+    color: #8e2b23;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.icon {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    /*text-indent: -10000px;*/
+    top: 6px;
+    z-index: 1;
+    -webkit-app-region: no-drag;
+}
+
+#dragArea{
+    width:100%;
+    height: 15px;
+}
+.noDragArea{
+    -webkit-app-region: no-drag;
+}
+#minimize {
+    right: 66px;
+}
+
+#maximize {
+    right: 38px;
+}
+#close {
+    right: 6px;
+}
+
+
+.tab-content{
+
+}
+
+.nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+/*Monster Info Panel*/
+.monster{
+    width: 90%;
+    height: auto;
+    border-color: black;
+}
+
+.monsterName h2{
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+.monsterQuickInfo{
+    font-style: italic;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+.monsterQuickStats{
+    margin: 0 auto;
+    display: table;
+}
+.monsterQuickStats div{
+    display: inline-block;
+}
+
+.monsterQuickStats div h4{
+    display: inline-block;
+    color: #8e2b23;
+}
+.monsterAC {
+    padding-right: 20px;
+}
+
+.monsterHP {
+    padding-right: 20px;
+}
+
+.monsterSpeed {
+    padding-right: 20px;
+}
+
+.monsterAbilities{
+    display: table;
+    margin: 0 auto;
+}
+.monsterAbilities div{
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+    text-align: center;
+}
+
+.monsterAbilities div h5{
+    color: #8e2b23;
+    text-align: center;
+}
+
+.monsterDetailBlock div h5{
+    color: #8e2b23;
+    display: inline;
+}
+
+.monsterTraits{
+    padding-bottom: 10px;
+    width: 50%;
+}
+
+.monsterTrait{
+}
+
+.monsterTrait hr{
+    margin-left:0;
+    color: grey !important;
+}
+
+.monsterActions{
+}
+.monsterAction{
+    border-top: 1px #8e2b23 solid;
+}
+
+.monsterAction b{
+    display: inline;
+}
+
+.monsterLegendary{
+    border-top: 1px #8e2b23 solid;
+}
+
+.monster .panel-collapse{
+    background-image: url("../images/parchment-paper.jpg");
+}
+
+.monster .panel-heading{
+    background-color: #c3b2a1;
+    color: black;
+    overflow: hidden;
+}
+
+.monster .panel-heading .headerInfo{
+    overflow: hidden;
+}
+
+/*Spells*/
+.spellLink{
+    text-transform: capitalize;
+}
+
+.spellInfo{
+    border-bottom: 1px #8e2b23 solid;
+}
+.spellInfo div h5{
+    display: inline;
+    color: #8e2b23;
+}
+
+.spellDescription{
+    padding-top: 5px;
+}
+
+.spell{
+    width: 90%;
+    height: auto;
+    border-color: black;
+}
+
+.spell .panel-heading{
+    background-color: #c3b2a1;
+    color: black;
+}
+
+.spell .panel-collapse{
+    background-image: url("../images/parchment-paper.jpg");
+}
+
+.spellName{
+    margin-top: -20px;
+}
+
+.spellName h5{
+    font-style: italic;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+/*Items*/
+.item{
+    width: 90%;
+    height: auto;
+    border-color: black;
+}
+
+.item .panel-heading{
+    background-color: #c3b2a1;
+    color: black;
+}
+
+.item .panel-collapse{
+    background-image: url("../images/parchment-paper.jpg");
+}
+
+.itemInfo{
+    border-bottom: 1px #8e2b23 solid;
+}
+
+.itemDescription{
+    padding-top: 5px;
+}
+
+.itemInfo div h5{
+    display: inline;
+    color: #8e2b23;
+}
+
+
+.itemName{
+    margin-top: -20px;
+}
+
+.itemName h5{
+    font-style: italic;
+    font-size: 15px;
+    margin-top: -10px;
+}
+.modal-content{
+    background-image: url("../images/parchment-paper.jpg");
+    color: black;
+}
+
+
+/*Characters*/
+.character{
+    width: 90%;
+    height: auto;
+    border-color: black;
+}
+
+.characterName{
+    margin-top: -20px;
+}
+
+.character .panel-collapse{
+    background-image: url("../images/parchment-paper.jpg");
+}
+
+.character .panel-heading{
+    background-color: #c3b2a1;
+    color: black;
+}
+
+.characterTraits{
+    padding-bottom: 10px;
+}
+
+.characterTrait{
+}
+
+.characterTrait hr{
+    margin-left:0;
+    color: grey !important;
+}
+.itemText{
+
+}
+
+.traits{
+}
+
+.traits .panel-heading{
+    background-color: #8e2b23;
+}
+
+.traits .panel-heading h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.features{
+}
+
+.features .panel-heading{
+    background-color: #8e2b23;
+}
+.features .panel-heading h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.features .panel-collapse .panel-body h3{
+    border-bottom: 1px #8e2b23 solid;
+}
+
+/*Encounter*/
+
+#encounterCreator .modal-dialog{
+    width: 95%;
+}
+
+.innerInfo{
+    vertical-align: middle;
+}
+.counter{
+    padding-right: 5px;
+    float: left;
+}
+
+.increment, .decrement{
+    width: 40px;
+    background: none;
+    border: 0;
+    display: block;
+}
+
+input[type='number']{
+    text-align: center;
+    border: 0;
+    max-width: 40px;
+    font-size: 30px;
+    background: none;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*Modals*/
+.modal-header{
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+.modal-body{
+    border-top: solid #8e2b23 1px;
+    border-bottom: solid #8e2b23 1px;
+}
+
+.modal-footer{
+
+}
+
+
+/*Encounters*/
+#allEncounters{
+
+}
+
+#encountersList{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#encounterOverview{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#encounterOverview li .monster, #encounterOverview li .character{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+#encountersList li{
+    border-bottom: 1px #8e2b23 solid;
+    height: 42px;
+}
+.encounterListName{
+    display: inline-block;
+    font-size: 30px;
+}
+
+.encounterButtons{
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    line-height: 42px;
+}
+
+.encounterButtons .btn{
+    margin-left: 10px;
+}
+
+#editEncounter{
+    display: none;
+ }
+
+#runningEncounter{
+    display: none;
+}
+
+.monsterStatHeader{
+    display: inline-block;
+    padding-left: 40px;
+    font-size: 20px;
+}
+.monsterQuickAC, .monsterQuickAC h3{
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+.monsterQuickHealth{
+    padding-left: 20px;
+}
+
+.monsterQuickHealth, .monsterQuickHealth h3, .monsterQuickHealth div{
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+
+#runningEncounterControls{
+    position: fixed;
+}
+#modifierButtons{
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+#dealDamageBtn, #dealHealingBtn{
+    display: none;
+}
+
+#damageInput, #healingInput{
+    width:50px;
+    display: none;
+}
+.selectedD{
+    border: 3px #f70025 ridge;
+}
+
+.selectedH{
+    border:3px #25c31c ridge;
+}
+
+.dbName{
+    display: none;
+}
+
+.activeTurn{
+    box-shadow:  0px 0px 60px 20px #a6e1ec;
+}
+
+#roundCount{
+    text-align: center;
+}
+#roundCount h2{
+    margin: 0;
+}
+
+#turnSelect{
+    float: left;
+}
+#turnSelect h3{
+    display: inline-block;
+}
+
+.dead{
+    background-color: grey !important;
+}
+.panel-heading a{
+    color: black;
+    text-decoration: none;
+}
+.panel-body{
+    color: black;
+}
+
+.panel-body hr{
+    border-color: #8e2b23;
+    margin-top: 0;
+    margin-bottom: 0;
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dungeon Runner</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="media/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="media/css/main.css">
+    <!-- Scripts -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="media/js/jquery-3.1.1.min.js"></script>
+    <script src="media/js/bootstrap.min.js"></script>
+    <script src="media/js/bootstrap-select.min.js"></script>
+    <script src="media/js/universals.js"></script>
+    <script src="media/js/runner.js"></script>
+    <script src="media/js/xmlParser.js"></script>
+    <script src="media/js/createCharacter.js"></script>
+    <script src="media/js/createEncounters.js"></script>
+    <script src="media/js/encounters.js"></script>
+
+    <script>if (window.module) module = window.module;</script>
+  </head>
+  <body>
+    <div id="dragArea"> </div>
+    <div class="icon glyphicon glyphicon-minus" onclick="minimizeApp();" id="minimize"></div>
+    <div class="icon glyphicon glyphicon-resize-full" onclick="maximizeToggle();" id="maximize"></div>
+    <div class="icon glyphicon glyphicon-remove" id="close" onclick="closeApp();"></div>
+    <div class="noDragArea">
+      <ul class="nav nav-pills">
+        <li class="active">
+          <a href="#campaignTab" data-toggle="tab">Campaign</a>
+        </li>
+        <li>
+          <a href="#encountersTab" data-toggle="tab">Encounters</a>
+        </li>
+        <li>
+          <a href="#playerTab" data-toggle="tab">Characters</a>
+        </li>
+        <li>
+          <a href="#beastiaryTab" data-toggle="tab">Beastiary</a>
+        </li>
+        <li>
+          <a href="#spellTab" data-toggle="tab">Spells</a>
+        </li>
+        <li>
+          <a href="#itemTab" data-toggle="tab">Items</a>
+        </li>
+      </ul>
+
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="campaignTab">
+          <h1 style="text-align: center;">Campaigns</h1>
+        </div>
+
+
+        <div class="tab-pane" id="encountersTab">
+          <h1 style="text-align: center;">Encounters</h1>
+
+          <div id="allEncounters">
+            <button class="btn btn-info btn-lg" data-toggle="modal" onclick="setModalSize('#encounterCreator');" data-target="#encounterCreator">Create Encounter</button>
+
+            <ul id="encountersList">
+            </ul>
+            <div class="modal fade" id="encounterCreator">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  Encounter Creator
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <input type="text" id="editEncounter" value="0" />
+                      <label for="encounterNewName">Name</label>
+                      <input type="text" class="form-control" id="encounterNewName" placeholder="D7. Temple">
+                      <label for="encounterNewHitDie">Use Hit Die: </label>
+                      <input id="hitDieCheck" type="checkbox" value="">
+                      <label>Choose Participants</label>
+                      <select class="form-control" id="encounterType">
+                        <option>Monster</option>
+                        <option>Character</option>
+                      </select>
+                      <select class="selectpicker" data-live-search="true" id="encounterChoice" multiple>
+                      </select>
+                      <button type="button" class="btn btn-info btn-sm" onclick="addParticipants();">
+                        <span class="glyphicon glyphicon-plus"></span>
+                      </button>
+
+
+                      <div id="encounterSetup">
+                        <h2 style="text-align: center;">Encounter Overview</h2>
+                        <ul id="encounterNewOverview">
+                        </ul>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-success btn-sm" onclick="saveNewEncounter();">Save Encounter</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div id="runningEncounter">
+            <div id="runningEncounterName">
+              <h2 style="text-align: center; margin: 0px;"></h2>
+              <div id="roundCount">
+                <h2></h2>
+              </div>
+            </div>
+            <div id="turnSelect">
+                <h3>Turn Select:</h3>
+                <button type="button" id="previousTurn" class="btn btn-info btn-lg" onclick="previousTurn();"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                <button type="button" id="nextTurn" class="btn btn-info btn-lg" onclick="nextTurn();"><span class="glyphicon glyphicon-chevron-right"></span></button>
+              </div>
+            <div id="modifierButtons">
+                <button type="button" class="btn btn-danger btn-lg" id="damageButton" enabled="false" onclick="toggleDamage();"><span class="glyphicon glyphicon-fire"></span></button>
+                <button type="button" class="btn btn-success btn-lg" id="healingButton" enabled="false" onclick="toggleHealing();"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                <button type="button" class="btn btn-info btn-lg" id="initButton" data-toggle="modal" data-target="#setInitiative" onclick="rollInitiative();">Roll Initiative</button>
+                <button type="button" class="btn btn-danger btn-lg" id="dealDamageBtn" onclick="dealDamage();">Deal Damage</button>
+                <input type="text" id="damageInput" />
+                <button type="button" class="btn btn-success btn-lg" id="dealHealingBtn" onclick="heal();">Heal</button>
+                <input type="text" id="healingInput" />
+                <button type="button"class="btn btn-info btn-sm" id="closeEncounter" onclick="endEncounter();">End Encounter</button>
+            </div>
+            <div id="encounterList">
+              <ul id="encounterOverview">
+              </ul>
+            </div>
+
+            <div class="modal fade" id="setInitiative">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header" style="text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    Set Initiative
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <ul id="initiativeList">
+                        </ul>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-success btn-sm" data-dismiss="modal" onclick="saveInitiative();">Save Initiative</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="tab-pane" id="playerTab">
+          <h1 style="text-align: center;">Player Characters</h1>
+          <button id="createButton" class="btn btn-info btn-lg" data-toggle="modal" data-target="#characterCreator">Create a character</button>
+          <button onclick="uploadRaces();">Upload Races</button>
+          <button onclick="uploadClasses();">Upload Classes</button>
+          <button onclick="uploadBackgrounds();">Upload Backgrounds</button>
+          <button onclick="uploadFeats();">Upload Feats</button>
+          <button onclick="uploadCharacter();">Upload Character</button>
+
+          <ul id="characterList">
+          </ul>
+
+          <div class="modal fade" id="characterCreator">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  Create a Character
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="charNewName">Name</label>
+                      <input type="text" class="form-control" id="charNewName" placeholder="Bigguy Bigguns">
+
+                      <label for="charNewPlayer">Player</label>
+                      <input type="text" class="form-control" id="charNewPlayer" placeholder="Ethan Ethanson">
+
+                      <label for="charNewSex">Sex</label>
+                      <select class="form-control" id="charNewSex">
+                        <option>Male</option>
+                        <option>Female</option>
+                      </select>
+
+                      <label for="charNewAge">Age</label>
+                      <input type="text" class="form-control" id="charNewAge" placeholder="23 years">
+
+                      <label for="charNewHeight">Height</label>
+                      <input type="text" class="form-control" id="charNewHeight">
+
+                      <label for="charNewWeight">Weight</label>
+                      <input type="text" class="form-control" id="charNewWeight" placeholder="170 lbs">
+
+                      <label for="charNewRace">Race</label>
+                      <select class="form-control" id="charNewRace">
+                        <option>Aasimar</option>
+                        <option>Bugbear</option>
+                        <option>Dragonborn</option>
+                        <option>Dwarf</option>
+                        <option>Elf</option>
+                        <option>Firbolg</option>
+                        <option>Genasi</option>
+                        <option>Gnome</option>
+                        <option>Goblin</option>
+                        <option>Goliath</option>
+                        <option>Half-Elf</option>
+                        <option>Half-Orc</option>
+                        <option>Halfling</option>
+                        <option>Hobgoblin</option>
+                        <option>Human</option>
+                        <option>Kenku</option>
+                        <option>Kobold</option>
+                        <option>Lizardfolk</option>
+                        <option>Orc</option>
+                        <option>Tabaxi</option>
+                        <option>Tiefling</option>
+                        <option>Triton</option>
+                        <option>Yuan-Ti</option>
+                      </select>
+
+                      <label for="charNewSubrace">Subrace</label>
+                      <select class="form-control" id="charNewSubrace">
+                      </select>
+
+                      <label for="charNewAlign">Alignment</label>
+                      <select class="form-control" id="charNewAlign">
+                        <option>Lawful Good</option>
+                        <option>Lawful Neutral</option>
+                        <option>Lawful Evil</option>
+                        <option>Neutral Good</option>
+                        <option>True Neutral</option>
+                        <option>Neutral Evil</option>
+                        <option>Chaotic Good</option>
+                        <option>Chaotic Neutral</option>
+                        <option>Chaotic Evil</option>
+                      </select>
+
+                      <label for="charNewXP">Experience</label>
+                      <input type="text" class="form-control" id="charNewXP" placeholder="350">
+
+                      <label for="charNewClass">Class</label>
+                      <select class="form-control" id="charNewClass">
+                        <option>Barbarian</option>
+                        <option>Bard</option>
+                        <option>Cleric</option>
+                        <option>Druid</option>
+                        <option>Fighter</option>
+                        <option>Monk</option>
+                        <option>Paladin</option>
+                        <option>Ranger</option>
+                        <option>Rogue</option>
+                        <option>Sorcerer</option>
+                        <option>Warlock</option>
+                        <option>Wizard</option>
+                      </select>
+
+                      <label id="labelNewSubclass" for="charNewSubclass"></label>
+                      <select class="form-control" id="charNewSubclass">
+                      </select>
+
+                      <label for="charNewBackground">Background</label>
+                      <select class="form-control" id="charNewBackground">
+                      </select>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button onclick="saveNewCharacter();">Save Character</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="beastiaryTab">
+          <h1 style="text-align: center;">Beastiary</h1>
+          <button onclick="loadXMLMonsterFile();">Load Monsters</button>
+          <input type="text" id="monsterSearch" />
+
+          <ul id="monsterList">
+          </ul>
+        </div>
+
+
+        <div class="tab-pane" id="spellTab">
+          <h1 style="text-align: center;">Spells</h1>
+          <button onclick="loadXMLSpellsFile();">Load Spells</button>
+          <input type="text" id="spellSearch" />
+
+          <ul id="spellList">
+          </ul>
+        </div>
+
+
+        <div class="tab-pane" id="itemTab">
+          <h1 style="text-align: center;">Items</h1>
+          <button onclick="uploadItems();">Load Items</button>
+          <input type="text" id="itemSearch" />
+
+          <ul id="itemList">
+          </ul>
+        </div>
+      </div>
+      <div id="spellModList"></div>
+      <div id="itemModList"></div>
+    </div>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>

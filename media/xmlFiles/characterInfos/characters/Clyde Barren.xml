@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pc version="5">
+<character>
+	<name>Clyde Barren</name>
+	<race>
+		<source>1</source>
+		<name>Human</name>
+		<feat>
+			<name>Languages</name>
+			<text>You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.</text>
+		</feat>
+		<proficiency>103</proficiency>
+		<proficiency>109</proficiency>
+	</race>
+	<class>
+		<source>1</source>
+		<id>1020</id>
+		<name>Fighter</name>
+		<level>5</level>
+		<hd>3</hd>
+		<hdCurrent>5</hdCurrent>
+		<spellAbility>3</spellAbility>
+		<slots>2,3,0,0,0,0,0,0,0,0,</slots>
+		<slotsCurrent>2,2,0,0,0,0,0,0,0,0,</slotsCurrent>
+		<spell>
+			<name>Burning Hands</name>
+			<level>1</level>
+			<school>5</school>
+			<time>1 action</time>
+			<range>Self (15-foot cone)</range>
+			<components>V, S</components>
+			<duration>Instantaneous</duration>
+			<text>As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one.
+
+The fire ignites any flammable objects in the area that aren&#39;t being worn or carried.
+
+At Higher Levels: When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</text>
+			<prepared>1</prepared>
+			<roll>3d6</roll>
+			<sclass>Cleric (Light)</sclass>
+			<sclass>Sorcerer</sclass>
+			<sclass>Warlock (Fiend)</sclass>
+			<sclass>Wizard</sclass>
+			<sclass>Fighter (Eldritch Knight)</sclass>
+		</spell>
+		<spell>
+			<name>Longstrider</name>
+			<level>1</level>
+			<school>8</school>
+			<time>1 action</time>
+			<range>Touch</range>
+			<components>V, S, M (a pinch of dirt)</components>
+			<duration>1 hour</duration>
+			<text>You touch a creature. The target&#39;s speed increases by 10 feet until the spell ends.
+
+At Higher Levels: When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.</text>
+			<prepared>1</prepared>
+			<sclass>Bard</sclass>
+			<sclass>Druid</sclass>
+			<sclass>Ranger</sclass>
+			<sclass>Wizard</sclass>
+		</spell>
+		<spell>
+			<name>Blade Ward</name>
+			<school>1</school>
+			<time>1 action</time>
+			<range>Self</range>
+			<components>V, S</components>
+			<duration>1 round</duration>
+			<text>You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.</text>
+			<sclass>Bard</sclass>
+			<sclass>Sorcerer</sclass>
+			<sclass>Warlock</sclass>
+			<sclass>Wizard</sclass>
+			<sclass>Fighter (Eldritch Knight)</sclass>
+			<sclass>Rogue (Arcane Trickster)</sclass>
+		</spell>
+		<spell>
+			<name>Magic Missile</name>
+			<level>1</level>
+			<school>5</school>
+			<time>1 action</time>
+			<range>120 feet</range>
+			<components>V, S</components>
+			<duration>Instantaneous</duration>
+			<text>You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4+1 force damage to its target. The darts all strike simultaneously and you can direct them to hit one creature or several.
+
+At Higher Levels: When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot above 1st.</text>
+			<prepared>1</prepared>
+			<roll>1d4+1</roll>
+			<sclass>Cleric (Arcana)</sclass>
+			<sclass>Sorcerer</sclass>
+			<sclass>Wizard</sclass>
+			<sclass>Fighter (Eldritch Knight)</sclass>
+		</spell>
+		<spell>
+			<name>Fire Bolt</name>
+			<school>5</school>
+			<time>1 action</time>
+			<range>120 feet</range>
+			<components>V, S</components>
+			<duration>Instantaneous</duration>
+			<text>You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn&#39;t being worn or carried.
+
+This spell&#39;s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</text>
+			<roll>1d20+%5+PROF</roll>
+			<roll>1d10</roll>
+			<roll>2d10</roll>
+			<roll>3d10</roll>
+			<roll>4d10</roll>
+			<sclass>Sorcerer</sclass>
+			<sclass>Wizard</sclass>
+			<sclass>Fighter (Eldritch Knight)</sclass>
+			<sclass>Rogue (Arcane Trickster)</sclass>
+		</spell>
+		<feat>
+			<name>Action Surge</name>
+			<text>You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a short or long rest before you can use it again.</text></feat><feat><name>Bard College</name><text>At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore or the College of Valor, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th and 14th level.</text></feat><feat><name>Expertise</name><text>At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.
+    At 10th level, you can choose another two skill proficiencies to gain this benefit.</text>
+		</feat>
+		<feat>
+			<name>Extra Attack</name>
+			<text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+    The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.</text>
+		</feat>
+		<mod>
+			<type>10</type>
+			<value>1</value>
+		</mod>
+		<proficiency>0</proficiency>
+		<proficiency>2</proficiency>
+		<autolevel>
+			<slots>0,0,0,0,0,0,0,0,0,0,</slots>
+			<feat>
+				<optional>1</optional>
+				<name>Fighting Style: Archery</name>
+				<text>You gain a +2 bonus to attack rolls you make with ranged weapons.</text>
+			</feat><feat><optional>1</optional><name>Fighting Style: Defense</name><text>While you are wearing armor, you gain a +1 bonus to AC.</text></feat><feat><optional>1</optional><name>Fighting Style: Dueling</name><text>When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.</text></feat><feat><optional>1</optional><name>Fighting Style: Great Weapon Fighting</name><text>When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.</text></feat><feat><optional>1</optional><name>Fighting Style: Protection</name><text>When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield. </text></feat><feat><optional>1</optional><name>Fighting Style: Two-Weapon Fighting</name><text>When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.</text></feat><feat><name>Second Wind</name><text>You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.
+    Once you use this feature, you must finish a short or long rest before you can use it again.</text></feat></autolevel>
+<autolevel><level>2</level><slots>0,0,0,0,0,0,0,0,0,0,</slots><feat><name>Action Surge</name><text>Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action.
+    Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.</text></feat></autolevel>
+<autolevel><level>3</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,2,0,0,0,0,0,0,0,0,</slots><feat><optional>1</optional><name>Champion: Improved Critical</name><text>Your weapon attacks score a critical hit on a roll of 19 or 20.</text></feat></autolevel>
+<autolevel><level>4</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,3,0,0,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>5</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,3,0,0,0,0,0,0,0,0,</slots><feat><name>Extra Attack</name><text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+    The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.</text></feat></autolevel>
+<autolevel><level>6</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,3,0,0,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>7</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,4,2,0,0,0,0,0,0,0,</slots><feat><optional>1</optional><name>Champion: Remarkable Athlete</name><text>You can add half your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn&#39;t already use your proficiency bonus.
+    In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier.</text></feat></autolevel>
+<autolevel><level>8</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,4,2,0,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>9</level><spellSlotsOptional>1</spellSlotsOptional><slots>2,4,2,0,0,0,0,0,0,0,</slots><feat><name>Indomitable</name><text>Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can’t use this feature again until you finish a long rest.
+    You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.</text></feat></autolevel>
+<autolevel><level>10</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,0,0,0,0,0,0,0,</slots><feat><optional>1</optional><name>Champion: Additional Fighting Style</name><text>You can choose a second option from the Fighting Style class feature.</text></feat></autolevel>
+<autolevel><level>11</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,0,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>12</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,0,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>13</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,2,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>14</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,2,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>15</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,2,0,0,0,0,0,0,</slots><feat><optional>1</optional><name>Champion: Superior Critical</name><text>Your weapon attacks score a critical hit on a roll of 18-20.</text></feat></autolevel>
+<autolevel><level>16</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,3,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>17</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,3,0,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>18</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,3,0,0,0,0,0,0,</slots><feat><optional>1</optional><name>Champion: Survivor</name><text>You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5+your Constitution modifier if you have no more than half of your hit points left. You don&#39;t gain this benefit if you have 0 hit points.</text></feat></autolevel>
+<autolevel><level>19</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,3,1,0,0,0,0,0,</slots></autolevel>
+<autolevel><level>20</level><spellSlotsOptional>1</spellSlotsOptional><slots>3,4,3,3,1,0,0,0,0,0,</slots></autolevel>
+</class>
+
+<background>
+	<name>Firefighter</name>
+</background>
+<xp>1300</xp>
+<abilities>16,14,16,12,13,9,</abilities>
+<hpMax>45</hpMax>
+<hpCurrent>2</hpCurrent>
+<hpTemp>0</hpTemp>
+<item>
+	<name>Quarterstaff</name>
+	<text>Versatile: This weapon can be used with one or two hands. A damage value in parentheses appears with the property — the damage when the weapon is used with two hands to make a melee attack.
+
+Source: Player&#39;s Handbook, page 149</text>
+	<type>5</type>
+	<weight>4</weight>
+	<damage1H>1d6</damage1H>
+	<damage2H>1d8</damage2H>
+	<damageType>1</damageType>
+	<weaponProperty>512</weaponProperty>
+	<mod>
+		<type>1</type>
+	</mod>
+</item>
+<item><name>Seeing Trinket</name><text>Two toy renaissance soldiers, one with head missing.</text><weight>0</weight></item>
+<item><name>Fireaxe</name><text>Versatile: This weapon can be used with one or two hands. A damage value in parentheses appears with the property — the damage when the weapon is used with two hands to make a melee attack.
+
+Source: Player&#39;s Handbook, page 149</text><type>5</type><slot>2</slot><weight>4</weight><damage1H>1d8</damage1H><damage2H>1d10</damage2H><damageType>3</damageType><weaponProperty>512</weaponProperty><mod><type>1</type></mod></item>
+<item><name>Backpack</name><text>A backpack can hold one cubic foot or 30 pounds of gear. You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.
+
+Source: Player&#39;s Handbook, page 153</text><slot>1</slot><weight>5</weight></item>
+<item><name>Bike Jacket</name><type>1</type><weight>0</weight><ac>11</ac></item>
+<item><name>Cabinet Door (Shield)</name><type>4</type><slot>4</slot><weight>0</weight><ac>2</ac></item>
+<note><name>Kaden Lock</name><text>Introduced me to the &#34;real world.&#34;</text><expanded>1</expanded><archived>0</archived></note>
+<note><name>Player Characters</name><text>Harrison Hairtrigger - Hunter (Josh)
+Nick - Farmer (Ian)
+Cordovan Johnson - Artist (Nathan)</text><expanded>1</expanded><archived>0</archived></note>
+<note><name>Aliel</name><text>Elf we should contact.</text><expanded>1</expanded><archived>0</archived></note>
+<note><name>Galiel</name><text>Head of the port - Duke</text><expanded>1</expanded><archived>0</archived></note>
+<note><name>Wealth Rating: 11</name><expanded>1</expanded><archived>0</archived></note>
+<note><name>Kyle</name><text>Bouncer at Etsy Bravo</text><expanded>0</expanded><archived>0</archived></note>
+<note><name>Harmony</name><text>Female Tiefling - Been helping me with my arcane studies.  Don&#39;t have to concentrate to see her true form. </text><expanded>1</expanded><archived>0</archived></note>
+<imageData><uniqueID>1006</uniqueID></imageData></character></pc>

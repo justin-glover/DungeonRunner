@@ -1,0 +1,30 @@
+{
+  "name": "Dungeon_Runner",
+  "version": "0.1.0",
+  "description": "A DM Helper App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Justin Glover",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.4.1",
+    "electron-packager": "^8.4.0",
+    "electron-windows-installer": "^1.4.4"
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "electron-data": "^1.2.1",
+    "nedb": "^1.8.0",
+    "nedb-promise": "^2.0.0"
+  }
+}
