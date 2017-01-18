@@ -1,3 +1,73 @@
+var remote = require('electron').remote;
+var Datastore = require('nedb');
+var Promise = require('promise');
+var await = require('await');
+
+
+
+//Get Save Directory
+var saveDirectory = remote.app.getPath('documents') + "\\DungeonRunner\\";
+var monsterDBName = saveDirectory +"monsterDB";
+var spellDBName = saveDirectory + "spellDB";
+var CCDBName = saveDirectory + "CCDB";
+var characterDBName = saveDirectory + "characterDB";
+var itemDBName = saveDirectory + "itemDB";
+var encounterDBName = saveDirectory + "encounterDB";
+
+monsterDB = new Datastore({
+   filename: monsterDBName
+});
+
+spellDB = new Datastore({
+    filename: spellDBName
+});
+
+CCDB = new Datastore({
+    filename: CCDBName
+});
+
+characterDB = new Datastore({
+    filename: characterDBName
+});
+
+itemDB = new Datastore({
+    filename: itemDBName
+});
+
+encounterDB = new Datastore({
+    filename: encounterDBName
+});
+
+var monsters = [];
+var spells = [];
+var items = [];
+var characters = [];
+var classes = [];
+var races = [];
+var encounters = [];
+var backgrounds = [];
+
+var getAllInfo = '';
+//Minimize, maximize, close
+function minimizeApp(){
+    var window = remote.getCurrentWindow();
+    window.minimize();
+}
+
+function maximizeToggle(){
+    var window = remote.getCurrentWindow();
+    if (!window.isMaximized()){
+        window.maximize();
+    }
+    else{
+        window.unmaximize();
+    }
+}
+function closeApp(){
+    var window = remote.getCurrentWindow();
+    window.close();
+}
+
 var subClassReference = {
     "Barbarian": [
         {"subID":"Path of the Berserker", "sub": "Path of the Berserker"},
@@ -120,6 +190,84 @@ var abilityImportDict = {'0': "Strength",
 
 var shortAbility = ['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'];
 
+//Load/Reload App
+function load(){
+    //Load DBS
+    getAllInfo = await('monsters', 'spells', 'items', 'characters', 'classes', 'races', 'encounters', 'backgrounds');
+    monsterDBLoad(getAllInfo);
+    spellDBLoad(getAllInfo);
+    CCDBLoad(getAllInfo);
+    characterDBLoad(getAllInfo);
+    itemDBLoad(getAllInfo);
+    encounterDBLoad(getAllInfo);
+
+    getAllInfo.then(function (got){
+        //Populate all info.
+        prepApp();
+        populateDropdowns();
+        loadEncounterTypes();
+    });
+}
+
+function reloadMonsters(){
+    console.log("Reloading Monsters");
+    var getMonstersInfo = await('monsters');
+    monsterDBLoad(getMonstersInfo);
+    getMonstersInfo.then(function(got){
+        $('#monsterList').empty();
+        addMonsters(monsters,'#monsterList', false, 0);
+        loadEncounterTypes();
+    });
+}
+
+function reloadSpells(){
+    console.log("Reloading Spells");
+    var getSpellInfo = await('spells');
+    spellDBLoad(getSpellInfo);
+    getSpellInfo.then(function(got){
+        $('#spellList').empty();
+        addSpells();
+    });
+}
+
+function reloadCCDB(){
+    console.log("Reloading CCDB");
+    var getCCDBInfo = await('classes', 'races', 'backgrounds');
+    CCDBLoad(getCCDBInfo);
+    getCCDBInfo.then(function(got){
+    });
+}
+
+function reloadCharacters(){
+    console.log("Reloading Characters");
+    var getCharacterInfo = await('characters');
+    characterDBLoad(getCharacterInfo);
+    getCharacterInfo.then(function(got){
+        $('#characterList').empty();
+        addCharacters(characters, '#characterList', false, 0);
+        loadEncounterTypes();
+    });
+}
+
+function reloadItems(){
+    console.log("Reloading Items");
+    var getItemInfo = await('items');
+    itemDBLoad(getItemInfo);
+    getItemInfo.then(function(got){
+        $('#itemList').empty();
+        addItems();
+    });
+}
+
+function reloadEncounters(){
+    var getEncountersInfo = await('encounters');
+    encounterDBLoad(getEncountersInfo);
+    getEncountersInfo.then(function(got){
+        $('#encountersList').empty();
+        addEncounters();
+        loadEncounterTypes();
+    });
+}
 
 //Utility functions
 function calculateModifier(value){

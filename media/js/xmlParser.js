@@ -154,7 +154,7 @@ function loadXMLMonsterFile(){
                 console.log("Inserted", doc.name, 'with ID', doc._id);
             });
         });
-        monsterDBLoad();
+        reloadMonsters();
         }
     });
 }
@@ -221,7 +221,7 @@ function loadXMLSpellsFile(){
                 });
 
             });
-            spellDBLoad();
+            reloadSpells();
         }
     });
 }
@@ -273,7 +273,7 @@ function uploadRaces(){
                     console.log("Inserted", doc.name, 'with ID', doc._id);
                 });
              });
-            CCDBLoad();
+            reloadCCDB();
          }
      });
 }
@@ -357,7 +357,7 @@ function uploadClasses(){
                 });
              });
 
-             CCDBLoad();
+             reloadCCDB();
          }
      });
 }
@@ -412,7 +412,7 @@ function uploadBackgrounds() {
                 });
             });
 
-            CCDBLoad();
+            reloadCCDB();
         }
     });
 }
@@ -570,7 +570,7 @@ function uploadCharacter(){
                 });
 
             });
-            characterDBLoad();
+            reloadCharacters();
         }
     });
 }
@@ -626,7 +626,7 @@ function uploadItems(){
                     console.log("Inserted", doc.name, 'with ID', doc._id);
                 });
             });
-            itemDBLoad();
+            reloadItems();
         }
     });
 }

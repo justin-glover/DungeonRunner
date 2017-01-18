@@ -1,43 +1,3 @@
-var remote = require('electron').remote;
-var Datastore = require('nedb');
-var Promise = require('promise');
-var await = require('await');
-
-
-
-//Get Save Directory
-var saveDirectory = remote.app.getPath('documents') + "\\DungeonRunner\\";
-var monsterDBName = saveDirectory +"monsterDB";
-var spellDBName = saveDirectory + "spellDB";
-var CCDBName = saveDirectory + "CCDB";
-var characterDBName = saveDirectory + "characterDB";
-var itemDBName = saveDirectory + "itemDB";
-var encounterDBName = saveDirectory + "encounterDB";
-
-monsterDB = new Datastore({
-   filename: monsterDBName
-});
-
-spellDB = new Datastore({
-    filename: spellDBName
-});
-
-CCDB = new Datastore({
-    filename: CCDBName
-});
-
-characterDB = new Datastore({
-    filename: characterDBName
-});
-
-itemDB = new Datastore({
-    filename: itemDBName
-});
-
-encounterDB = new Datastore({
-    filename: encounterDBName
-});
-
 //Dictionaries
 var mainAbilites = {'Strength': 0, 'Dexterity': 1, 'Constitution': 2, 'Intelligence': 3, 'Wisdom': 4, 'Charisma': 5};
 
@@ -105,40 +65,11 @@ var spellLevelDictionary = {
     "10": "10th"
 };
 
-var monsters = [];
-var spells = [];
-var items = [];
-var characters = [];
-var classes = [];
-var races = [];
-var encounters = [];
-var backgrounds = [];
-
-//Minimize, maximize, close
-function minimizeApp(){
-    var window = remote.getCurrentWindow();
-    window.minimize();
-}
-
-function maximizeToggle(){
-    var window = remote.getCurrentWindow();
-    if (!window.isMaximized()){
-        window.maximize();
-    }
-    else{
-        window.unmaximize();
-    }
-}
-function closeApp(){
-    var window = remote.getCurrentWindow();
-    window.close();
-}
-
 
 //Load the monster database up.
-function monsterDBLoad(){
+function monsterDBLoad(waiter){
+    monsters = [];
     monsterDB.loadDatabase(function(err){
-
     });
 
     monsterDB.find({}).sort({name: 1}).exec(function(err, docs){
@@ -146,11 +77,12 @@ function monsterDBLoad(){
             monsters.push(monster);
         });
         console.log("Monsters: ", monsters);
-        getAllInfo.keep('monsters', monsters);
+        waiter.keep('monsters', monsters);
     });
 }
 
-function spellDBLoad() {
+function spellDBLoad(waiter) {
+    spells = [];
     spellDB.loadDatabase(function(err){
     });
 
@@ -159,11 +91,14 @@ function spellDBLoad() {
             spells.push(spell);
         });
         console.log("Spells: ", spells);
-        getAllInfo.keep('spells', spells);
+        waiter.keep('spells', spells);
     });
 }
 
-function CCDBLoad(){
+function CCDBLoad(waiter){
+    classes = [];
+    races = [];
+    backgrounds = [];
     CCDB.loadDatabase(function(err){
     });
 
@@ -173,7 +108,7 @@ function CCDBLoad(){
            classes.push(foundClass);
        });
        console.log("Classes: ", classes);
-       getAllInfo.keep('classes', classes);
+       waiter.keep('classes', classes);
     });
 
     CCDB.find({type: 'race'}).exec(function(err, docs){
@@ -182,7 +117,7 @@ function CCDBLoad(){
            races.push(foundRace);
        });
        console.log("Races: ", races);
-       getAllInfo.keep('races', races);
+       waiter.keep('races', races);
     });
 
      CCDB.find({type: 'background'}).sort({name: 1}).exec(function (err, docs) {
@@ -191,11 +126,12 @@ function CCDBLoad(){
         });
 
         console.log("backgrounds: ", backgrounds);
-        getAllInfo.keep('backgrounds', backgrounds);
+        waiter.keep('backgrounds', backgrounds);
      });
 }
 
-function characterDBLoad(){
+function characterDBLoad(waiter){
+    characters = [];
     characterDB.loadDatabase(function(err){
     });
 
@@ -203,30 +139,32 @@ function characterDBLoad(){
         docs.forEach(function (character) {
                 characters.push(character);
             });
-        getAllInfo.keep('characters', characters);
+        waiter.keep('characters', characters);
         console.log("Characters: ", characters);
         });
 }
 
-function itemDBLoad(){
+function itemDBLoad(waiter){
+    items = [];
     itemDB.loadDatabase(function(err){});
     itemDB.find({}).sort({name: 1}).exec(function (err, docs) {
         docs.forEach(function (item) {
             items.push(item);
         });
         console.log("Items: ", items);
-        getAllInfo.keep('items', items);
+        waiter.keep('items', items);
     });
 }
 
-function encounterDBLoad(){
+function encounterDBLoad(waiter){
+    encounters = [];
     encounterDB.loadDatabase(function(err){});
     encounterDB.find({}).sort({name: 1}).exec(function (err, docs) {
         docs.forEach(function (encounter) {
             encounters.push(encounter);
         });
         console.log("Encounters: ", encounters);
-        getAllInfo.keep('encounters', encounters);
+        waiter.keep('encounters', encounters);
     });
 }
 
@@ -1110,13 +1048,8 @@ function addSpells(){
         $("#spellList").append(spellListHTML);
     }
 }
-function prepApp() {
 
-    //Add Monsters
-    addMonsters(monsters,'#monsterList', false, 0);
-    addSpells();
-
-    //Populate Items
+function addItems(){
     console.log("Items Length: ", items.length);
     for (var a = 0; a < items.length; a++) {
 
@@ -1204,36 +1137,19 @@ function prepApp() {
 
         $("#itemList").append(itemListHTML);
     }
-
-    //***************Populate Characters****************************
+}
+function prepApp() {
+    //Add Monsters
+    addMonsters(monsters,'#monsterList', false, 0);
+    addSpells();
+    addItems();
     addCharacters(characters, '#characterList', false, 0);
-
-    //****************Populate Encounters****************************
     addEncounters();
 }
 
-//Load DBS
-var getAllInfo = await('monsters', 'spells', 'items', 'characters', 'classes', 'races', 'encounters', 'backgrounds');
-monsterDBLoad();
-spellDBLoad();
-CCDBLoad();
-characterDBLoad();
-itemDBLoad();
-encounterDBLoad();
-
-console.log("Waiting for the then...");
-getAllInfo.then(function (got){
-    console.log("Here we goooo");
-
-    //Populate all info.
-    prepApp();
-    populateDropdowns();
-    loadEncounterTypes();
-});
-
-
 //For populating things that need to exist first.
 $(document).ready(function(){
+    load();
     //Monster Search
     $("#monsterSearch").on("keyup", function() {
         var g = $(this).val().toLowerCase();
