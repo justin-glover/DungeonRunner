@@ -112,6 +112,7 @@ var characters = [];
 var classes = [];
 var races = [];
 var encounters = [];
+var backgrounds = [];
 
 //Minimize, maximize, close
 function minimizeApp(){
@@ -168,19 +169,30 @@ function CCDBLoad(){
 
     CCDB.find({type: 'class'}).exec(function(err, docs){
        docs.forEach(function (foundClass){
+           // console.log("Class: ", foundClass);
            classes.push(foundClass);
        });
-       getAllInfo.keep('classes', classes);
        console.log("Classes: ", classes);
+       getAllInfo.keep('classes', classes);
     });
 
     CCDB.find({type: 'race'}).exec(function(err, docs){
        docs.forEach(function (foundRace){
+           // console.log("Race: ", foundRace);
            races.push(foundRace);
        });
-       getAllInfo.keep('races', races);
        console.log("Races: ", races);
+       getAllInfo.keep('races', races);
     });
+
+     CCDB.find({type: 'background'}).sort({name: 1}).exec(function (err, docs) {
+        docs.forEach(function (foundBackground){
+            backgrounds.push(foundBackground);
+        });
+
+        console.log("backgrounds: ", backgrounds);
+        getAllInfo.keep('backgrounds', backgrounds);
+     });
 }
 
 function characterDBLoad(){
@@ -220,27 +232,11 @@ function encounterDBLoad(){
 
 //Populate dropdowns
 function populateDropdowns(){
-     CCDB.loadDatabase(function (err) {
-        if (err) {
-            return err;
-        }
-    });
-
-     // CCDB.find({type: 'race'}).sort({name: 1}).exec(function (err, races) {
-     //     races.forEach(function(race){
-     //            $('#charNewRace').append('<option>' + race.name + '</option>');
-     //     });
-     // });
-
-     CCDB.find({type: 'background'}).sort({name: 1}).exec(function (err, backgrounds) {
-
-         var listItems = "";
-         backgrounds.forEach(function(background){
-                listItems += '<option>' + background.name + '</option>';
-         });
-
-         $('#charNewBackground').html(listItems);
-     });
+    var listItems = "";
+    for(var i=0; i < backgrounds.length; i++){
+        listItems += '<option>' + backgrounds[i].name + '</option>';
+    }
+    $('#charNewBackground').html(listItems);
 }
 
 
@@ -1217,7 +1213,7 @@ function prepApp() {
 }
 
 //Load DBS
-var getAllInfo = await('monsters', 'spells', 'items', 'characters', 'classes', 'races', 'encounters');
+var getAllInfo = await('monsters', 'spells', 'items', 'characters', 'classes', 'races', 'encounters', 'backgrounds');
 monsterDBLoad();
 spellDBLoad();
 CCDBLoad();
@@ -1225,19 +1221,19 @@ characterDBLoad();
 itemDBLoad();
 encounterDBLoad();
 
+console.log("Waiting for the then...");
 getAllInfo.then(function (got){
     console.log("Here we goooo");
 
     //Populate all info.
     prepApp();
+    populateDropdowns();
     loadEncounterTypes();
 });
 
 
 //For populating things that need to exist first.
 $(document).ready(function(){
-    populateDropdowns();
-
     //Monster Search
     $("#monsterSearch").on("keyup", function() {
         var g = $(this).val().toLowerCase();

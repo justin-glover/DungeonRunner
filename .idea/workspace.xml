@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9120a61d-e823-49c5-acb0-ab0e86fe124b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/js/xmlParser.js" afterPath="$PROJECT_DIR$/media/js/xmlParser.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/js/runner.js" afterPath="$PROJECT_DIR$/media/js/runner.js" />
     </list>
     <ignored path="electron-quick-start.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,12 +52,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="runner.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="runner.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/media/js/runner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7157">
-              <caret line="421" column="75" lean-forward="false" selection-start-line="421" selection-start-column="57" selection-end-line="421" selection-end-column="75" />
-              <folding />
+            <state relative-caret-position="228">
+              <caret line="229" column="7" lean-forward="true" selection-start-line="229" selection-start-column="7" selection-end-line="229" selection-end-column="7" />
+              <folding>
+                <marker date="1484725814034" expanded="true" signature="12063:12070" ph="×" />
+                <marker date="1484725814034" expanded="true" signature="41742:41749" ph="×" />
+                <marker date="1484725814034" expanded="true" signature="45535:45542" ph="×" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/media/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="318" column="14" lean-forward="true" selection-start-line="318" selection-start-column="14" selection-end-line="318" selection-end-column="14" />
+            <state relative-caret-position="129">
+              <caret line="311" column="23" lean-forward="true" selection-start-line="311" selection-start-column="23" selection-end-line="311" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -109,8 +113,8 @@
       <file leaf-file-name="encounters.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/media/js/encounters.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="121" column="17" lean-forward="true" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
+            <state relative-caret-position="918">
+              <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
               <folding>
                 <marker date="1484699565276" expanded="true" signature="2665:2687" ph="..." />
                 <marker date="1484699565276" expanded="true" signature="2836:2871" ph="..." />
@@ -122,8 +126,8 @@
       <file leaf-file-name="xmlParser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/media/js/xmlParser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="1609">
+              <caret line="119" column="69" lean-forward="true" selection-start-line="119" selection-start-column="69" selection-end-line="119" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -180,13 +184,13 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/media/js/createCharacter.js" />
         <option value="$PROJECT_DIR$/main.js" />
-        <option value="$PROJECT_DIR$/media/js/runner.js" />
         <option value="$PROJECT_DIR$/media/css/main.css" />
         <option value="$PROJECT_DIR$/media/js/universals.js" />
         <option value="$PROJECT_DIR$/media/js/encounters.js" />
         <option value="$PROJECT_DIR$/media/js/createEncounters.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/media/js/xmlParser.js" />
+        <option value="$PROJECT_DIR$/media/js/runner.js" />
       </list>
     </option>
   </component>
@@ -594,7 +598,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4828">
           <caret line="284" column="54" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="54" />
-          <folding />
+          <folding>
+            <marker date="1484725814034" expanded="true" signature="12063:12070" ph="×" />
+            <marker date="1484725814034" expanded="true" signature="41742:41749" ph="×" />
+            <marker date="1484725814034" expanded="true" signature="45535:45542" ph="×" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -839,30 +847,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/js/runner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7157">
-          <caret line="421" column="75" lean-forward="false" selection-start-line="421" selection-start-column="57" selection-end-line="421" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/media/js/createEncounters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="118" column="53" lean-forward="true" selection-start-line="118" selection-start-column="53" selection-end-line="118" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/js/encounters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="121" column="17" lean-forward="true" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
-          <folding>
-            <marker date="1484699565276" expanded="true" signature="2665:2687" ph="..." />
-            <marker date="1484699565276" expanded="true" signature="2836:2871" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -875,14 +864,6 @@
             <element signature="n#style#0;n#h1#0;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/js/xmlParser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,9 +885,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/media/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="318" column="14" lean-forward="true" selection-start-line="318" selection-start-column="14" selection-end-line="318" selection-end-column="14" />
+        <state relative-caret-position="129">
+          <caret line="311" column="23" lean-forward="true" selection-start-line="311" selection-start-column="23" selection-end-line="311" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/js/encounters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+          <folding>
+            <marker date="1484699565276" expanded="true" signature="2665:2687" ph="..." />
+            <marker date="1484699565276" expanded="true" signature="2836:2871" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/js/xmlParser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1609">
+          <caret line="119" column="69" lean-forward="true" selection-start-line="119" selection-start-column="69" selection-end-line="119" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/js/runner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="229" column="7" lean-forward="true" selection-start-line="229" selection-start-column="7" selection-end-line="229" selection-end-column="7" />
+          <folding>
+            <marker date="1484725814034" expanded="true" signature="12063:12070" ph="×" />
+            <marker date="1484725814034" expanded="true" signature="41742:41749" ph="×" />
+            <marker date="1484725814034" expanded="true" signature="45535:45542" ph="×" />
+          </folding>
         </state>
       </provider>
     </entry>
