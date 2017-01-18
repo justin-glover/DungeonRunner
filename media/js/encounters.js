@@ -15,7 +15,6 @@ function populateEncounter(encounterName, round){
     $('#runningEncounter').show();
 
     var activeMonster = $('#encounterOverview').find('.activeTurn').find('.monsterName h2, .characterName h2').html();
-    console.log("ActiveMonster: ", activeMonster);
 
     $('#encounterOverview').empty();
 
@@ -99,13 +98,11 @@ function populateEncounter(encounterName, round){
     $("#encounterOverview").children('li').children('.monster, .character').children(".panel-heading").click(function(e) {
         var damageButton = $('#damageButton').attr('enabled');
         var healingButton = $('#healingButton').attr('enabled');
-        console.log("Damage Button: ", damageButton);
         if ( damageButton == "false" && healingButton == "false") {
             $(this).parent().children('.collapse').collapse("toggle");
             return false;
         }
         else if(damageButton == "true"){
-            console.log("Trying to click damage...");
             e.stopPropagation();
             if($(this).parent().hasClass("selectedD")){
                 $(this).parent().removeClass("selectedD");
@@ -196,7 +193,6 @@ function rollInitiative(){
 }
 
 function toggleDamage(){
-    console.log("Toggling Damage...");
     if($('#damageButton').attr('enabled') == 'true'){
         $('#damageButton').attr('enabled', 'false');
         $('#dealDamageBtn, #damageInput').hide();
@@ -204,7 +200,6 @@ function toggleDamage(){
     }
     else {
         $('#damageButton').attr('enabled', 'true');
-        console.log("Set Damage to on: ", $('#damageButton').attr("enabled"));
         $('#dealDamageBtn, #damageInput').show();
         $('#initButton, #healingButton').hide();
     }
@@ -324,7 +319,6 @@ function heal(){
 
 function nextTurn(){
     var current = $('.activeTurn').closest('li');
-    console.log("Current: ", current);
     var next = $(current).next();
     $(current).find('.monster, .character').removeClass('activeTurn');
     if(next.length == 0){
@@ -341,7 +335,6 @@ function nextTurn(){
 
 function previousTurn(){
     var current = $('.activeTurn').closest('li');
-    console.log("Current: ", current);
     var prev = $(current).prev();
     $(current).find('.monster, .character').removeClass('activeTurn');
     if(prev.length == 0){

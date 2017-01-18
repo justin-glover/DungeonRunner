@@ -76,7 +76,7 @@ function monsterDBLoad(waiter){
         docs.forEach(function(monster){
             monsters.push(monster);
         });
-        console.log("Monsters: ", monsters);
+        console.log("Monsters: ", monsters.length);
         waiter.keep('monsters', monsters);
     });
 }
@@ -90,7 +90,7 @@ function spellDBLoad(waiter) {
         docs.forEach(function (spell) {
             spells.push(spell);
         });
-        console.log("Spells: ", spells);
+        console.log("Spells: ", spells.length);
         waiter.keep('spells', spells);
     });
 }
@@ -107,7 +107,7 @@ function CCDBLoad(waiter){
            // console.log("Class: ", foundClass);
            classes.push(foundClass);
        });
-       console.log("Classes: ", classes);
+       console.log("Classes: ", classes.length);
        waiter.keep('classes', classes);
     });
 
@@ -116,7 +116,7 @@ function CCDBLoad(waiter){
            // console.log("Race: ", foundRace);
            races.push(foundRace);
        });
-       console.log("Races: ", races);
+       console.log("Races: ", races.length);
        waiter.keep('races', races);
     });
 
@@ -125,7 +125,7 @@ function CCDBLoad(waiter){
             backgrounds.push(foundBackground);
         });
 
-        console.log("backgrounds: ", backgrounds);
+        console.log("backgrounds: ", backgrounds.length);
         waiter.keep('backgrounds', backgrounds);
      });
 }
@@ -140,7 +140,7 @@ function characterDBLoad(waiter){
                 characters.push(character);
             });
         waiter.keep('characters', characters);
-        console.log("Characters: ", characters);
+        console.log("Characters: ", characters.length);
         });
 }
 
@@ -151,7 +151,7 @@ function itemDBLoad(waiter){
         docs.forEach(function (item) {
             items.push(item);
         });
-        console.log("Items: ", items);
+        console.log("Items: ", items.length);
         waiter.keep('items', items);
     });
 }
@@ -163,7 +163,7 @@ function encounterDBLoad(waiter){
         docs.forEach(function (encounter) {
             encounters.push(encounter);
         });
-        console.log("Encounters: ", encounters);
+        console.log("Encounters: ", encounters.length);
         waiter.keep('encounters', encounters);
     });
 }
@@ -569,7 +569,6 @@ function addCharacters(characterList, elementID, encounter, turn){
                 }
             }
 
-            console.log("Abilities: ", raceReference.abilities);
             for (var i = 0; i < raceMatch[rCount].traits.length; i++) {
                 raceTraits.push(raceMatch[rCount].traits[i]);
             }
@@ -781,7 +780,6 @@ function addCharacters(characterList, elementID, encounter, turn){
             }
         }
 
-        console.log("Ability Scores: ", abilities);
         for(i=0; i < abilities.length; i++){
             var profMarker = '';
             //Handle for weird import from character xml
@@ -945,7 +943,6 @@ function addEncounters(){
 
 function addSpells(){
     //Populate Spells
-    console.log("Spells Length: ", spells.length);
     for (var s = 0; s < spells.length; s++) {
         //Load into Spell Tab
         var spellReferenceName = spells[s].name.replace(/\s|\(.*?\)|[()]|\'|\*|\.|\//g, '');
@@ -1050,7 +1047,6 @@ function addSpells(){
 }
 
 function addItems(){
-    console.log("Items Length: ", items.length);
     for (var a = 0; a < items.length; a++) {
 
         var itemReferenceName = items[a].name.replace(/\s|[()]|\'|\*|\.|\/|\+|\,/g, '');

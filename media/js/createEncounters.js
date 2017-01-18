@@ -3,7 +3,6 @@
  */
 
 function loadEncounterTypes(){
-    console.log("Encounter stuff..");
     var monsterChoices = [];
     var characterChoices = [];
 
@@ -48,7 +47,6 @@ function addParticipants(){
 }
 
 function removeParticipant(participantID){
-    console.log("ID: ", participantID);
     $(participantID).parent().parent().remove();
 }
 
@@ -67,12 +65,9 @@ function editEncounter(encounterName){
     $('#encounterNewName').val(encounterName);
 
     for(var i=0; i < encounter.length; i++){
-        console.log("Checking Encounter: ", encounter[i].name);
         for(var k=0; k < encounter[i].participants.length; k++){
-            console.log("Participants: ", encounter[i].participants[k].name);
             var properName = encounter[i].participants[k].name.split('_')[0];
             var counterReference = '#' + encounter[i].participants[k].name.split('_')[0].replace(/\s|[()]/g, '') + 'counter';
-            console.log("Counter Reference: ", counterReference);
 
             if(participantList.indexOf(properName) >= 0){
                 increment(counterReference);
