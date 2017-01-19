@@ -20,6 +20,7 @@
     <script src="media/js/createCharacter.js"></script>
     <script src="media/js/createEncounters.js"></script>
     <script src="media/js/encounters.js"></script>
+    <script src="media/js/createMonster.js"></script>
 
     <script>if (window.module) module = window.module;</script>
   </head>
@@ -77,7 +78,7 @@
                       <input type="text" id="editEncounter" value="0" />
                       <label for="encounterNewName">Name</label>
                       <input type="text" class="form-control" id="encounterNewName" placeholder="D7. Temple">
-                      <label for="encounterNewHitDie">Use Hit Die: </label>
+                      <label for="hitDieCheck">Use Hit Die: </label>
                       <input id="hitDieCheck" type="checkbox" value="">
                       <label>Choose Participants</label>
                       <select class="form-control" id="encounterType">
@@ -290,8 +291,135 @@
           <button onclick="loadXMLMonsterFile();">Load Monsters</button>
           <input type="text" id="monsterSearch" />
 
+          <button id="createMonsterBtn" class="btn btn-info btn-lg" data-toggle="modal" data-target="#createMonster">Create a Monster</button>
+
           <ul id="monsterList">
           </ul>
+
+          <div class="modal fade" id="createMonster">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header" style="text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    Create Monster
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                          <div class="monster panel panel-default">
+                            <div class="panel-heading">
+                                <div class="headerInfo innerInfo">
+                                    <div class="monsterName">
+                                        <h2></h2>
+                                    </div>
+                                    <div class="monsterQuickInfo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="" class="panel monsterID">
+                                <div class="panel-body">
+                                    <div class="monsterStats">
+                                        <div class="monsterQuickStats">
+                                            <div class="monsterAC">
+                                                <h4>Armor Class: </h4>
+                                            </div>
+                                            <div class="monsterHP">
+                                                <h4>HP: </h4>
+                                            </div>
+                                            <div class="monsterSpeed">
+                                                <h4>Speed: </h4>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="monsterAbilities">
+                                            <div class="monsterSTR">
+                                                <h5>STR</h5>
+                                            </div>
+                                            <div class="monsterDEX">
+                                                <h5>DEX</h5>
+                                            </div>
+                                            <div class="monsterCON">
+                                                <h5>CON</h5>
+                                            </div>
+                                            <div class="monsterINT">
+                                                <h5>INT</h5>
+                                            </div>
+                                            <div class="monsterWIS">
+                                                <h5>WIS</h5>
+                                            </div>
+                                            <div class="monsterCHA">
+                                                <h5>CHA</h5>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="monsterDetailBlock">
+                                            <div class="monsterSaves">
+                                              <h5>Saving Throws: </h5>
+                                            </div>
+                                            <div class="monsterSkills">
+                                                <h5>Skills: </h5>
+                                            </div>
+                                            <div class="monsterVulners">
+                                                <h5>Damage Vulnerabilities: </h5>
+                                            </div>
+                                            <div class="monsterResists">
+                                                <h5>Damage Resistances: </h5>
+                                            </div>
+                                            <div class="monsterImmune">
+                                                <h5>Damage Immunities: </h5>
+                                            </div>
+                                            <div class="monsterConditionImmune">
+                                                <h5>Condition Immunities: </h5>
+                                            </div>
+                                            <div class="monsterSenses">
+                                                <h5>Senses: </h5>
+                                            </div>
+                                            <div class="monsterPassivePerception">
+                                                <h5>Passive Perception: </h5>
+                                            </div>
+                                            <div class="monsterLanguage">
+                                                <h5>Languages: </h5>
+                                            </div>
+                                            <div class="monsterCR">
+                                                <h5>Challenge: </h5>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="monsterTraits">
+                                        <h2>Traits</h2>
+                                        <div class="monsterTrait">
+                                            <h4></h4>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="monsterActions">
+                                        <h2>Actions</h2>
+                                        <div class="monsterAction">
+                                            <h4></h4>
+                                            </br>
+                                            <b>Hit:</b>
+                                        </div>
+                                    </div>
+                                    <div class="monsterLegendaries">
+                                        <h2>Legendary Actions</h2>
+                                        <div class="monsterLegendary">
+                                            <h4></h4>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-success btn-sm" data-dismiss="modal" onclick="saveMonster();">Save Monster</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
 
 
