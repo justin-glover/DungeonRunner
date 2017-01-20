@@ -5,9 +5,47 @@ function saveMonster(){
 
 }
 
+function addTrait(){
+
+    var newTraitHTML = '' +
+            '<div class="newMonsterTrait">' +
+                '<h4>Trait Name:<input type="text" class="newMonsterTrait" placeholder="Fast Dude"/></h4>' +
+                '<hr>' +
+                '<label>Description</label>' +
+                '<textarea rows="5" class="newMonsterTraitDesc descriptionInput"></textarea>' +
+            '</div>';
+
+    $('#newMonsterTraitList').append(newTraitHTML);
+}
+
+function addAction(){
+    var newActionHTML = '' +
+                '<div class="monsterAction">' +
+                    '<h4>Action Name:<input type="text" class="newMonsterTrait" placeholder="Claws"/></h4>' +
+                    '</br>' +
+                    '<label>Description</label>' +
+                    '<textarea rows="5" class="newMonsterAction descriptionInput"></textarea>' +
+                    '<b>Hit:</b>' +
+                    '<input type="text" id="newMonsterActionHit" placeholder="6 (1d8 + 1)" />' +
+                '</div>';
+
+    $('#newMonsterActionList').append(newActionHTML);
+}
+
+function addLegendary(){
+    var newLegendaryHTML = '' +
+             '<div class="monsterLegendary">' +
+                '<h4>Legendary Name:<input type="text" class="newMonsterLegendary" placeholder="Quick Strike"/></h4>' +
+                '<hr>' +
+                '<label>Description</label>' +
+                '<textarea rows="5" class="newMonsterLegendary descriptionInput"></textarea>' +
+            '</div>';
+
+    $('#newMonsterLegendList').append(newLegendaryHTML);
+}
 function injectCreateMonster(){
     
-    var fillHTML = '' + 
+    var fillHTML = '' +
                 '<div class="panel-heading">' +
                     '<div class="headerInfo innerInfo">' +
                                     '<div class="monsterName">' +
@@ -112,34 +150,43 @@ function injectCreateMonster(){
                                         '</div>' +
                                         '<hr>' +
                                     '</div>' +
-                                    '<div class="monsterTraits">' +
+                                    '<div class="newMonsterTraits">' +
                                         '<h2>Traits</h2>' +
-                                        '<div class="monsterTrait">' +
-                                            '<h4>Trait Name:<input type="text" class="newMonsterTrait" placeholder="Fast Dude"/></h4>' +
-                                            '<hr>' +
-                                            '<label for="newMonsterTrait">Description</label>' +
-                                            '<textarea rows="5" id="newMonsterTrait"></textarea>' +
+                                        '<div id="newMonsterTraitList">' +
+                                            '<div class="newMonsterTrait">' +
+                                                '<h4>Trait Name:<input type="text" class="newMonsterTrait" placeholder="Fast Dude"/></h4>' +
+                                                '<hr>' +
+                                                '<label>Description</label>' +
+                                                '<textarea rows="5" class="newMonsterTraitDesc descriptionInput"></textarea>' +
+                                            '</div>' +
                                         '</div>' +
+                                        '<button type="button" class="btn btn-info btn-lg" onclick="addTrait();">Add Trait</button>' +
                                     '</div>' +
                                     '<div class="monsterActions">' +
                                         '<h2>Actions</h2>' +
-                                        '<div class="monsterAction">' +
-                                            '<h4>Action Name:<input type="text" class="newMonsterTrait" placeholder="Claws"/></h4>' +
-                                            '</br>' +
-                                            '<label for="newMonsterAction">Description</label>' +
-                                            '<textarea rows="5" id="newMonsterAction"></textarea>' +
-                                            '<b>Hit:</b>' +
-                                            '<input type="text" id="newMonsterActionHit" placeholder="6 (1d8 + 1)" />' +
+                                        '<div id="newMonsterActionList">' +
+                                            '<div class="monsterAction">' +
+                                                '<h4>Action Name:<input type="text" class="newMonsterTrait" placeholder="Claws"/></h4>' +
+                                                '</br>' +
+                                                '<label>Description</label>' +
+                                                '<textarea rows="5" class="newMonsterAction descriptionInput"></textarea>' +
+                                                '<b>Hit:</b>' +
+                                                '<input type="text" id="newMonsterActionHit" placeholder="6 (1d8 + 1)" />' +
+                                            '</div>' +
                                         '</div>' +
+                                        '<button type="button" class="btn btn-info btn-lg" onclick="addAction();">Add Action</button>' +
                                     '</div>' +
                                     '<div class="monsterLegendaries">' +
                                         '<h2>Legendary Actions</h2>' +
-                                        '<div class="monsterLegendary">' +
-                                            '<h4>Legendary Name:<input type="text" class="newMonsterLegendary" placeholder="Quick Strike"/></h4>' +
-                                            '<hr>' +
-                                            '<label for="newMonsterLegendary">Description</label>' +
-                                            '<textarea rows="5" id="newMonsterLegendary"></textarea>' +
+                                        '<div id="newMonsterLegendList">' +
+                                            '<div class="monsterLegendary">' +
+                                                '<h4>Legendary Name:<input type="text" class="newMonsterLegendary" placeholder="Quick Strike"/></h4>' +
+                                                '<hr>' +
+                                                '<label>Description</label>' +
+                                                '<textarea rows="5" class="newMonsterLegendary descriptionInput"></textarea>' +
+                                            '</div>' +
                                         '</div>' +
+                                        '<button type="button" class="btn btn-info btn-lg" onclick="addLegendary();">Add Legendary Action</button>' +
                                     '</div>' +
                                 '</div>' +
                             '</div>' +
