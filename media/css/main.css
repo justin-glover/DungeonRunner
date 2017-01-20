@@ -150,6 +150,38 @@ ul{
     overflow: hidden;
 }
 
+.newMonsterAbilities div input{
+    border: 1px black solid;
+    font-size: 15px;
+}
+
+.newMonsterAbilities{
+    display: table;
+    margin: 0 auto;
+    padding-bottom: 5px;
+}
+.newMonsterAbilities div{
+    display: inline-block;
+    padding: 0px 5px 5px 5px;
+    text-align: center;
+}
+
+.newMonsterAbilities div h5{
+    color: #8e2b23;
+    text-align: center;
+}
+
+#newMonsterAC{
+    width: 50px;
+}
+#newMonsterHP{
+    width: 100px;
+}
+
+#newMonsterSpeed{
+    width: 200px;
+}
+
 /*Spells*/
 .spellLink{
     text-transform: capitalize;
