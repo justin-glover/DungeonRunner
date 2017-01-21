@@ -114,11 +114,11 @@ var subClassReference = {
         {"subID":"Beast Master","sub": "Beast Master"},
         {"subID":"Hunter", "sub": "Hunter"}
     ],
-    "Rogue": [
-        {"subID":"(Arcane Trickster)", "sub": "Arcane Trickster"},
-        {"subID":"Assassin", "sub": "Assassin"},
-        {"subID":"Thief", "sub": "Thief"}
-    ],
+    "Rogue": {
+        "Arcane Trickster": "Arcane Trickster",
+        "Assassin": "Assassin",
+        "Thief": "Thief"
+    },
     "Sorcerer": [
         {"subID":"Draconic Ancestry","sub": "Draconic Ancestry"},
         {"subID":"Wild Magic", "sub": "Wild Magic"}

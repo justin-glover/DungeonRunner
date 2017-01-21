@@ -80,7 +80,7 @@ function injectCreateMonster(){
                                             '</div>' +
                                         '</div>' +
                                         '<hr>' +
-                                        '<div class="monsterAbilities">' +
+                                        '<div class="newMonsterAbilities">' +
                                             '<div class="monsterSTR">' +
                                                 '<h5>STR</h5>' +
                                                 '<input type="number" id="newMonsterSTR" placeholder="10" />' +
