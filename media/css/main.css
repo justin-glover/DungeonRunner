@@ -136,18 +136,62 @@ ul{
     border-top: 1px #8e2b23 solid;
 }
 
-.monster .panel-collapse{
+.monster .panel-collapse, #newMonster .panel-collapse{
     background-image: url("../images/parchment-paper.jpg");
 }
 
-.monster .panel-heading{
+.monster .panel-heading, #newMonster .panel-heading{
     background-color: #c3b2a1;
     color: black;
     overflow: hidden;
 }
 
-.monster .panel-heading .headerInfo{
+.monster .panel-heading .headerInfo, #newMonster .panel-heading .headerInfo{
     overflow: hidden;
+}
+
+#newMonster{
+    height: auto;
+    border-color: black;
+}
+.newMonsterAbilities div input{
+    border: 1px black solid;
+    font-size: 15px;
+}
+
+.newMonsterAbilities{
+    display: table;
+    margin: 0 auto;
+    padding-bottom: 5px;
+}
+.newMonsterAbilities div{
+    display: inline-block;
+    padding: 0px 5px 5px 5px;
+    text-align: center;
+}
+
+.newMonsterAbilities div h5{
+    color: #8e2b23;
+    text-align: center;
+}
+
+#newMonsterAC{
+    width: 50px;
+}
+#newMonsterHP{
+    width: 100px;
+}
+
+#newMonsterSpeed{
+    width: 200px;
+}
+
+.newMonsterTraits{
+    padding-bottom: 10px;
+    width: 100%;
+}
+.descriptionInput{
+    width: 100%;
 }
 
 /*Spells*/
