@@ -2,8 +2,7 @@ var remote = require('electron').remote;
 var Datastore = require('nedb');
 var Promise = require('promise');
 var await = require('await');
-
-
+require('electron').webFrame.setZoomLevelLimits(1, 1);
 
 //Get Save Directory
 var saveDirectory = remote.app.getPath('documents') + "\\DungeonRunner\\";
