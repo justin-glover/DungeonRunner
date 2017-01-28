@@ -930,7 +930,7 @@ function addEncounters(){
                             '</div>' +
                             '<div class="encounterButtons">' +
                                 '<button class="btn btn-success btn-sm" type="button" onclick="populateEncounter(\'' + encounters[i].name + '\')"><span class="glyphicon glyphicon-play"></span></button>' +
-                                '<button class="btn btn-info btn-sm" type="button" data-target="#encounterCreator" data-toggle="modal" onclick="editEncounter(\'' + encounters[i].name + '\')"><span class="glyphicon glyphicon-pencil"></span></button>' +
+                                '<button class="btn btn-info btn-sm" type="button" data-target="#encounterCreator" data-toggle="modal" onclick="clearEncounter(); editEncounter(\'' + encounters[i].name + '\')"><span class="glyphicon glyphicon-pencil"></span></button>' +
                                 '<button class="btn btn-danger btn-sm" type="button" onclick="deleteEncounter(\'#' + referenceName + '\',\'' + encounters[i].name + '\')"><span class="glyphicon glyphicon-remove"></span></button>' +
                             '</div>' +
                         '</div>' +

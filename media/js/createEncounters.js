@@ -2,6 +2,12 @@
  * Created by Tipster on 1/10/2017.
  */
 
+function clearEncounter(){
+    $('#encounterNewOverview').empty();
+    $('#encounterNewName').val("");
+    $('#encounterChoice').selectpicker('deselectAll');
+}
+
 function loadEncounterTypes(){
     var monsterChoices = [];
     var characterChoices = [];
