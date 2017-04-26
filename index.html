@@ -50,6 +50,29 @@
 
       {{ /monsters }}
     </script>
+    <script id="player_card_template" type="text/html">
+      {{ #players }}
+
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                  <img src="media/images/player_symbol.jpg">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                      <span class="card-title">{{ name }}</span>
+                    <p>Player Info goes here, pretty cool good dudes.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">Open up some player info.</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      {{ /players }}
+    </script>
+
   </head>
   <body>
     <div id="dragArea"> </div>
