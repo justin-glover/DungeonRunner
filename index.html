@@ -7,6 +7,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="media/css/bootstrap.min.css">
     <link rel="stylesheet" href="media/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="media/css/materialize.min.css">
     <link rel="stylesheet" href="media/css/main.css">
     <!-- Scripts -->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -14,6 +15,8 @@
     <script src="media/js/jquery-3.1.1.min.js"></script>
     <script src="media/js/bootstrap.min.js"></script>
     <script src="media/js/bootstrap-select.min.js"></script>
+    <script src="media/js/materialize.min.js"></script>
+    <script src="media/js/mustache.min.js"></script>
     <script src="media/js/universals.js"></script>
     <script src="media/js/runner.js"></script>
     <script src="media/js/xmlParser.js"></script>
@@ -23,6 +26,30 @@
     <script src="media/js/createMonster.js"></script>
 
     <script>if (window.module) module = window.module;</script>
+
+    <!-- Templates -->
+    <script id="monster_card_template" type="text/html">
+      {{ #monsters }}
+
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                  <img src="media/images/enemy_symbol.jpg">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                      <span class="card-title">{{ name }}</span>
+                    <p>Monster Info goes here, pretty cool bad dudes.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">Open up some monster info.</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      {{ /monsters }}
+    </script>
   </head>
   <body>
     <div id="dragArea"> </div>

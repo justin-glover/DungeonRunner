@@ -27,6 +27,7 @@ function populateEncounter(encounterName, round){
 
     for(var i=0; i < encounter.length; i++){
         var initHTML = '';
+        var monsterList = {"monsters": []};
         for(var k=0; k < encounter[i].participants.length; k++){
             var properName = encounter[i].participants[k].name.split('_')[0];
             var monsterReference = encounter[i].participants[k].name.replace(/\s|[()]/g, '');
@@ -42,7 +43,9 @@ function populateEncounter(encounterName, round){
                 var match = $.grep(monsters, function (e) {
                     return e.name == properName
                 });
-                addMonsters(match, '#encounterOverview', "running", encounter[i].participants[k].name, Number(encounter[i].participants[k].turn));
+
+                monsterList["monsters"].push({"name": encounter[i].participants[k].name});
+                // addMonsters(match, '#encounterOverview', "running", encounter[i].participants[k].name, Number(encounter[i].participants[k].turn));
                 var finder = '#' + monsterReference;
                 var panel = $('#encounterOverview').find(finder).parent();
 
@@ -66,7 +69,10 @@ function populateEncounter(encounterName, round){
                             '</div>' +
                         '</li>';
         }
+
+        var rendered = Mustache.to_html($('#monster_card_template').html(), monsterList);
         $('#initiativeList').html(initHTML);
+        $('#encounterOverview').html(rendered);
     }
 
     var li = $('#encounterOverview').children('li');
